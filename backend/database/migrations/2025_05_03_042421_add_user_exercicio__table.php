@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('user_exercicio' , function(Blueprint $table){
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('exercicio_id')->constrained('exercicio')->onDelete('cascade');
+            $table->foreignId('exercicio_id')->constrained('exercicios')->onDelete('cascade');
             $table->string('tempo');//tempo de duracao ex : 2H 30
             $table->boolean('exercicio'); //se o usuario fez ou não exercicio
             $table->text('feedback');

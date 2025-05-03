@@ -17,14 +17,13 @@ class VersiculoController extends Controller{
 
     public function criar_versiculo(Request $request){
 
-        $request->validate([
+        //aviso ->ative o acepte aplication/json no postman para retorna o json
+       $request->validate([
             'meditacao' => 'required|string|max:255',
             'livro' => 'required|string|max:255',
             'capitulo' => 'required|integer',
             'versiculo' => 'required|integer',
         ]);
-
-
 
         $versiculo = Versiculo::create([
             'meditacao' => $request->meditacao,

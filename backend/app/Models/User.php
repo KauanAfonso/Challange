@@ -38,7 +38,9 @@ class User extends Authenticatable
     }
 
     public function exercicio(){
-        return $this->hasMany(Exercicio::class);
+        return $this->belongsToMany(Exercicio::class, 'user_exercicio')
+        ->withPivot('tempo', 'exercicio', 'feedback')
+        ->withTimestamps();
     }
     /**
      * The attributes that should be hidden for serialization.
