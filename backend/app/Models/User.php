@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Models\Anotacao;
+use App\Models\Agua;
+use App\Models\Exercicio;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -26,6 +28,18 @@ class User extends Authenticatable
     ];
 
 
+
+    public function anotacoes(){
+        return $this->hasMany(Anotacao::class);
+    }
+
+    public function agua(){
+        return $this->hasMany(Agua::class);
+    }
+
+    public function exercicio(){
+        return $this->hasMany(Exercicio::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
