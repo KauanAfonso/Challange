@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('imagem');
-            $table->string('descricao');
-            $table->timestamps(); 
+            $table->string(
+                'descricao');
+            $table->timestamps();
 
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-     Schema::dropIfExists('exercicio');
+     Schema::dropIfExists('exercicios');
     }
 };

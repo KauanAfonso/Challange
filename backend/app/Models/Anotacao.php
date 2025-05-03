@@ -10,6 +10,12 @@ class Anotacao extends Model
 {
     use HasFactory;
 
+    protected $table = 'anotacoes';
+    protected $fillable = [
+        'objetivo',
+        'user_id',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

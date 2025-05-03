@@ -46,7 +46,7 @@ class ExercicioController extends Controller{
             'exercicio_id'=> 'required|exists:exercicios,id',
             'tempo' => 'nullable|string|max:255',
             'exercicio' => 'required|boolean',
-            'Feedback' => 'string'
+            'feedback' => 'string'
         ]);
 
         //com a chave exercicio_id, o id do exercicio é passado para o attach
@@ -55,7 +55,7 @@ class ExercicioController extends Controller{
             $request->input('exercicio_id') => [
                 'exercicio' => $request->input('exercicio'),
                 'tempo' => $request->input('tempo'),
-                'feedback' => $request->input('Feedback'),
+                'feedback' => $request->input('feedback'),
             ]]);
 
         return response()->json(['message' => 'Registro de exercício realizado com sucesso'],200);

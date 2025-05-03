@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\VersiculoController;
+use App\Http\Controllers\AnotacoesController;
 
 
 Route::post('/login', [LoginController::class, 'login']);
@@ -16,6 +17,7 @@ Route::post('/versiculo', [VersiculoController::class, 'criar_versiculo']); // c
 Route::post('/exercicio',[ExercicioController::class, 'criar_exercicio'] );
 Route::post('/exercicio_user', [ExercicioController::class, 'exercicio_realizado'])->middleware('auth:sanctum');
 
+Route::post('/anotacoes', [AnotacoesController::class, 'criar_anotacao'])->middleware('auth:sanctum');
 
 
 Route::get('/user', function (Request $request) {
