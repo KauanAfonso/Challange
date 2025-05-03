@@ -9,4 +9,9 @@ class Versiculo extends Model
 {
     /** @use HasFactory<\Database\Factories\VersiculoFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'meditacao', 'livro', 'capitulo', 'versiculo', //tipo o serializer do laravel
+    ];
+
 }
