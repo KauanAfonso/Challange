@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Exercicio;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; // Não esqueça de importar a facade Auth
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Response;
+
 class ExercicioController extends Controller{
     public function criar_exercicio(Request $request)
     {
@@ -58,8 +60,34 @@ class ExercicioController extends Controller{
                 'feedback' => $request->input('feedback'),
             ]]);
 
-        return response()->json(['message' => 'Registro de exercício realizado com sucesso'],200);
+        return response()->json(['message' => 'Registro de exercício realizado com sucesso'],201);
     }
 
+
+    public function obter_exercicio_dia(request $request){
+        //pegando a data atual
+
+        //se a data não for passada, pega a data atual
+        //se a data for passada, pega a data passada
+        $data_atual = $request->input('data') // O input procura esse dado em body, path,query,, form-data
+        ?Carbon::parse($request->input('data'))
+        : Carbon::now();
+
+        $user = Auth::user();
+        //filtrando sobre os exercicios do usuario por dia
+
+        $exercicios = $user->exercicio()
+            ->where('exercicio', true)
+            ->wherePivot('created_at', '>=', $data_atual->copy()->startOfDay())
+            ->wherePivot('created_at', '<=', $data_atual->copy()->endOfDay())
+            ->get();
+
+
+        if($exercicios->isEmpty()){
+            return response()->json(['message' => 'Nenhum exercício encontrado para hoje'], 404);
+        }
+
+        return response()->json(['exercicios_hoje'=>$exercicios], 200);
+    }
 
 }
