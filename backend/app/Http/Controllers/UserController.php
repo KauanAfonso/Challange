@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // ✅ Aqui está o correto
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    //
+    //Adicionar mais informações para o usuario quando ele logar
     public function adicionar_info(Request $request){
 
         $request->validate([
