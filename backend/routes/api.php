@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AguaController;
 use App\Http\Controllers\ExercicioController;
+use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +15,7 @@ use App\Http\Controllers\AnotacoesController;
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register',[LoginController::class, 'register']);
 Route::post('/logout',[LoginController::class, 'logout'])->middleware('auth:sanctum');
-
+Route::put('/usuario',[UserController::class, 'adicionar_info'])->middleware('auth:sanctum');
 
 //VERSICULO
 Route::get('/versiculo/{id}', [VersiculoController::class, 'obter_versiculo']); //obter versiculo
