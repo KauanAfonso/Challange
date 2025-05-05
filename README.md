@@ -1,7 +1,7 @@
 # LifeStyle
 
 # Backend
-app using react native
+app usando laravel e react native expo
 
 
 # 🚀 Passo a passo para rodar um projeto Laravel clonado via Git
@@ -9,6 +9,9 @@ app using react native
 > Este guia assume que você **ainda não tem nada instalado** e está rodando em um ambiente **Windows, Linux ou macOS**.
 
 ---
+
+## Documentação da API 
+- Veja [aqui](https://documenter.getpostman.com/view/38441286/2sB2j68ptc)
 
 ## ✅ Pré-requisitos
 
