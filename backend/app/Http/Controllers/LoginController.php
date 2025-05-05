@@ -25,6 +25,7 @@ class LoginController extends Controller{
             "password"=>bcrypt($request->password)
         ]);
 
+        
         if(!$user){
             return response()->json([
                 "message"=>"Erro ao criar o usuario"
