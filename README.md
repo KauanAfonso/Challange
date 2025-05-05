@@ -23,12 +23,12 @@ Antes de começar, você precisa ter:
 
 ## Instalar tudo
 
-'''bash
+```bash
 
 # Run as administrator on windows powershell...
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
 
-'''
+```
 
 ## 📥 1. Clonar o projeto
 
